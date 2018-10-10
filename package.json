@@ -1,19 +1,19 @@
 {
-  "name": "bitcore",
+  "name": "fcore",
   "version": "5.0.0-beta.44",
   "description": "A platform to build bitcoin and blockchain-based applications.",
   "engines": {
     "node": ">=8.0.0"
   },
-  "author": "BitPay <dev@bitpay.com>",
+  "author": "Fcash <dev@fcash.cash>",
   "main": "index.js",
   "scripts": {
     "test": "./node_modules/.bin/mocha test/** --recursive",
     "build-deb": "./scripts/build-deb"
   },
   "bin": {
-    "bitcore": "./bin/bitcore",
-    "bitcored": "./bin/bitcored"
+    "fcore": "./bin/fcore",
+    "fcored": "./bin/fcored"
   },
   "keywords": [
     "bitcoin",
@@ -33,13 +33,13 @@
   ],
   "repository": {
     "type": "git",
-    "url": "https://github.com/bitpay/bitcore.git"
+    "url": "https://github.com/fcash-project/fcore.git"
   },
   "dependencies": {
-    "bitcore-lib": "5.0.0-beta.1",
-    "bitcore-node": "5.0.0-beta.44",
+    "fcash-lib": "5.0.0-beta.1",
+    "fcash-node": "5.0.0-beta.44",
     "insight-api": "5.0.0-beta.44",
-    "insight-ui": "bitpay/insight#v5.0.0-beta.44"
+    "insight-ui": "fcash-project/insight#v5.0.0-beta.44"
   },
   "license": "MIT",
   "devDependencies": {

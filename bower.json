@@ -1,10 +1,10 @@
 {
-  "name": "bitcore",
-  "main": "./bitcore.min.js",
+  "name": "fcore",
+  "main": "./fcore.min.js",
   "version": "0.13.5",
-  "homepage": "http://bitcore.io",
+  "homepage": "http://www.fcash.cash",
   "authors": [
-    "BitPay, Inc."
+    "Fcash, Inc."
   ],
   "description": "A pure, powerful core for your bitcoin project.",
   "moduleType": [
@@ -12,7 +12,7 @@
   ],
   "keywords": [
     "bitcoin",
-    "bitcore",
+    "fcore",
     "btc",
     "satoshi"
   ],

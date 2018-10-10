@@ -1,18 +1,18 @@
 [Unit]
-Description=Bitcoin Core for Bitcore
+Description=Fcash Core for Fcash
 Requires=network.target
 
 [Service]
 Type=simple
-WorkingDirectory=/usr/opt/bitcore
-ExecStart=/usr/bin/bitcore-bitcoind -datadir=/home/bitcore/.bitcore/data/
+WorkingDirectory=/usr/opt/fcore
+ExecStart=/usr/bin/fcash-bitcoind -datadir=/home/fcore/.fcore/data/
 ExecReload=/bin/kill -HUP $MAINPID
 Restart=on-failure
 RestartSec=15
-User=bitcore
-ExecStartPre=/bin/mkdir -p /run/bitcore
-ExecStartPre=/bin/chown bitcore:bitcore /run/bitcore
-ExecStartPre=/bin/chmod 755 /run/bitcore
+User=fcore
+ExecStartPre=/bin/mkdir -p /run/fcore
+ExecStartPre=/bin/chown fcore:fcore /run/fcore
+ExecStartPre=/bin/chmod 755 /run/fcore
 PermissionsStartOnly=true
 TimeoutStopSec=300
 

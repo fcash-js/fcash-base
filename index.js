@@ -1,5 +1,5 @@
 'use strict';
 
-var bitcore = require('bitcore-lib');
+var fcore = require('fcash-lib');
 
-module.exports = bitcore;
+module.exports = fcore;

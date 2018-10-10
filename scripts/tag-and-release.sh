@@ -5,8 +5,8 @@ set -e
 
 insightApiDir="${HOME}/source/insight-api"
 insightUIDir="${HOME}/source/insight-ui"
-bitcoreDir="${HOME}/source/bitcore"
-bitcoreNodeDir="${HOME}/source/bitcore-node"
+fcoreDir="${HOME}/source/fcore"
+fcoreNodeDir="${HOME}/source/fcash-node"
 
 ###########################################################
 
@@ -17,9 +17,9 @@ bump_version () {
 }
 
 set_deps () {
-  sed -i '' -e "s/\"bitcore-node\"\: .*$/\"bitcore-node\"\: \"${shortTag}\",/g" package.json
+  sed -i '' -e "s/\"fcash-node\"\: .*$/\"fcash-node\"\: \"${shortTag}\",/g" package.json
   sed -i '' -e "s/\"insight-api\"\: .*$/\"insight-api\"\: \"${shortTag}\",/g" package.json
-  sed -i '' -e "s/\"insight-ui\"\: .*$/\"insight-ui\"\: \"bitpay\/insight\#${tag}\"/g" package.json
+  sed -i '' -e "s/\"insight-ui\"\: .*$/\"insight-ui\"\: \"fcash\/insight\#${tag}\"/g" package.json
 }
 
 tag="${1}"
@@ -33,13 +33,13 @@ fi
 
 
 #############################################
-# bitcore-node
+# fcash-node
 #############################################
-function bitcoreNode() {
+function fcoreNode() {
   echo ""
-  echo "Starting with bitcore-node..."
+  echo "Starting with fcash-node..."
   sleep 2
-  pushd "${bitcoreNodeDir}"
+  pushd "${fcoreNodeDir}"
 
   sudo rm -fr node_modules
   bump_version
@@ -58,7 +58,7 @@ function bitcoreNode() {
   fi
 
   echo ""
-  echo "Committing changes for bitcore-node..."
+  echo "Committing changes for fcash-node..."
   sleep 2
   git commit -S
 
@@ -183,13 +183,13 @@ function insightUi() {
 }
 
 #############################################
-# bitcore
+# fcore
 #############################################
-function bitcore() {
+function fcore() {
   echo ""
-  echo "Releasing bitcore..."
+  echo "Releasing fcore..."
   sleep 2
-  pushd "${bitcoreDir}"
+  pushd "${fcoreDir}"
 
   sudo rm -fr node_modules
   bump_version
@@ -210,7 +210,7 @@ function bitcore() {
   fi
 
   echo ""
-  echo "Committing changes for bitcore..."
+  echo "Committing changes for fcore..."
   sleep 2
   git commit -S
 
@@ -243,10 +243,10 @@ echo "Assuming projects at ${HOME}/source..."
 
 releases="${2}"
 if [ -z "${releases}" ]; then
-  bitcoreNode
+  fcoreNode
   insightApi
   insightUi
-  bitcore
+  fcore
 else
   eval "${releases}"
 fi
