@@ -4,15 +4,15 @@ Requires=network.target
 
 [Service]
 Type=simple
-WorkingDirectory=/usr/opt/fcore
-ExecStart=/usr/bin/fcash-bitcoind -datadir=/home/fcore/.fcore/data/
+WorkingDirectory=/usr/opt/fcash-base
+ExecStart=/usr/bin/fcash-bitcoind -datadir=/home/fcash-base/.fcash-base/data/
 ExecReload=/bin/kill -HUP $MAINPID
 Restart=on-failure
 RestartSec=15
-User=fcore
-ExecStartPre=/bin/mkdir -p /run/fcore
-ExecStartPre=/bin/chown fcore:fcore /run/fcore
-ExecStartPre=/bin/chmod 755 /run/fcore
+User=fcash-base
+ExecStartPre=/bin/mkdir -p /run/fcash-base
+ExecStartPre=/bin/chown fcash-base:fcash-base /run/fcash-base
+ExecStartPre=/bin/chmod 755 /run/fcash-base
 PermissionsStartOnly=true
 TimeoutStopSec=300
 

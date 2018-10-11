@@ -16,10 +16,10 @@ package_version=$(jq -r ".version" "${root_dir}/package.json")
 package_maintainer=$(jq -r ".author" "${root_dir}/package.json")
 package_description=$(jq -r ".description" "${root_dir}/package.json")
 
-deb_dir="${root_dir}/build/fcore_${package_version}_${package_arch}"
+deb_dir="${root_dir}/build/fcash-base_${package_version}_${package_arch}"
 
 log_title "Making Debian package:\n"
-echo -e "  Name: fcore"
+echo -e "  Name: fcash-base"
 echo -e "  Version: ${package_version}"
 echo -e "  Maintainer: ${package_maintainer}"
 echo -e "  Description: ${package_description}"
@@ -45,9 +45,9 @@ replace_vars() {
 
 log_title "Setting up Debian package:"
 mkdir -vp "$deb_dir/DEBIAN" \
-      "$deb_dir/etc/fcore" \
-      "$deb_dir/usr/opt/fcore" \
-      "$deb_dir/usr/opt/fcore/bin" \
+      "$deb_dir/etc/fcash-base" \
+      "$deb_dir/usr/opt/fcash-base" \
+      "$deb_dir/usr/opt/fcash-base/bin" \
       "$deb_dir/usr/bin"
 
 mkdir -vp "$deb_dir/etc/init"
@@ -55,26 +55,26 @@ mkdir -vp "$deb_dir/etc/systemd/system"
 replace_vars "${root_dir}/scripts/debian/control" "$deb_dir/DEBIAN/control"
 replace_vars "${root_dir}/scripts/debian/postinst" "$deb_dir/DEBIAN/postinst"
 replace_vars "${root_dir}/scripts/debian/prerm" "$deb_dir/DEBIAN/prerm"
-replace_vars "${root_dir}/scripts/debian/fcore.conf" "$deb_dir/etc/init/fcore.conf"
-replace_vars "${root_dir}/scripts/debian/fcore.service" "$deb_dir/etc/systemd/system/fcore.service"
+replace_vars "${root_dir}/scripts/debian/fcash-base.conf" "$deb_dir/etc/init/fcash-base.conf"
+replace_vars "${root_dir}/scripts/debian/fcash-base.service" "$deb_dir/etc/systemd/system/fcash-base.service"
 replace_vars "${root_dir}/scripts/debian/fcash-bitcoind.conf" "$deb_dir/etc/init/fcash-bitcoind.conf"
 replace_vars "${root_dir}/scripts/debian/fcash-bitcoind.service" "$deb_dir/etc/systemd/system/fcash-bitcoind.service"
 chmod -vR 0755 "$deb_dir/DEBIAN/"
 
 log_title "Copying Fcash"
 
-app_dir="$deb_dir/usr/opt/fcore"
+app_dir="$deb_dir/usr/opt/fcash-base"
 
-cp -v "${root_dir}/bin/fcored" "${app_dir}/bin/fcored"
-cp -v "${root_dir}/bin/fcore" "${app_dir}/bin/fcore"
-chmod -vR 0755 "${app_dir}/bin/fcore" "${app_dir}/bin/fcored"
+cp -v "${root_dir}/bin/fcash-based" "${app_dir}/bin/fcash-based"
+cp -v "${root_dir}/bin/fcash-base" "${app_dir}/bin/fcash-base"
+chmod -vR 0755 "${app_dir}/bin/fcash-base" "${app_dir}/bin/fcash-based"
 cp -v "${root_dir}/package.json" "${app_dir}"
 cp -v "${root_dir}/README.md" "${app_dir}"
 cp -v "${root_dir}/index.js" "${app_dir}"
 pushd "${deb_dir}/usr/bin"
-ln -vs "../opt/fcore/bin/fcore"
-ln -vs "../opt/fcore/bin/fcored"
-ln -vs "../opt/fcore/node_modules/.bin/bitcoind" "fcash-bitcoind"
+ln -vs "../opt/fcash-base/bin/fcash-base"
+ln -vs "../opt/fcash-base/bin/fcash-based"
+ln -vs "../opt/fcash-base/node_modules/.bin/bitcoind" "fcash-bitcoind"
 popd
 
 log_title "Installing Fcash Modules"
@@ -84,7 +84,7 @@ echo "Cleanup Node.js addon binaries before packaging:"
 find "${app_dir}" -type f -name '*.node' -print -delete
 find "${app_dir}" -type f -name '*.o' -print -delete
 echo "Cleanup intermediate files:"
-rm -v "${deb_dir}/usr/opt/fcore/node_modules/fcash-node/bin/bitcoin-0.12.1-linux64.tar.gz"
+rm -v "${deb_dir}/usr/opt/fcash-base/node_modules/fcash-node/bin/bitcoin-0.12.1-linux64.tar.gz"
 npm shrinkwrap --dev
 popd
 

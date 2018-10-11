@@ -1,5 +1,5 @@
 
 
-var fcoreTasks = require('fcash-build');
+var fcashBaseTasks = require('fcash-build');
 
-fcoreTasks();
+fcashBaseTasks();

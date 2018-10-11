@@ -3,35 +3,35 @@ set -e
 set -o pipefail
 
 # add group
-if ! getent group | grep -q "^fcore:" ; then
-    echo "Creating system group: fcore"
-    groupadd --system fcore
+if ! getent group | grep -q "^fcash-base:" ; then
+    echo "Creating system group: fcash-base"
+    groupadd --system fcash-base
 fi
 
 # add user
-if ! getent passwd | grep -q "^fcore:"; then
-    echo "Creating fcore system user"
-    useradd --gid "fcore" --system -m fcore
+if ! getent passwd | grep -q "^fcash-base:"; then
+    echo "Creating fcash-base system user"
+    useradd --gid "fcash-base" --system -m fcash-base
 fi
 
 # build nodejs addons
-cd "/usr/opt/fcore"
+cd "/usr/opt/fcash-base"
 SKIP_BITCOIN_DOWNLOAD=1 npm rebuild
 
 # setup data directory
-mkdir -p "/home/fcore/.fcore/data"
-chown -R fcore:fcore "/home/fcore/.fcore"
+mkdir -p "/home/fcash-base/.fcash-base/data"
+chown -R fcash-base:fcash-base "/home/fcash-base/.fcash-base"
 
-# start fcore
+# start fcash-base
 if hash service 2> /dev/null; then
-    service fcore start || echo "fcore could not be registered or started"
+    service fcash-base start || echo "fcash-base could not be registered or started"
 elif hash start 2> /dev/null; then
-    start fcore || echo "fcore could not be registered or started"
+    start fcash-base || echo "fcash-base could not be registered or started"
 elif hash systemctl 2> /dev/null; then
     {
-        systemctl enable "fcore.service" && \
-            systemctl start "fcore.service"
-    } || echo "fcore could not be registered or started"
+        systemctl enable "fcash-base.service" && \
+            systemctl start "fcash-base.service"
+    } || echo "fcash-base could not be registered or started"
 else
-    echo 'Your system does not appear to use upstart or systemd, so fcore could not be started'
+    echo 'Your system does not appear to use upstart or systemd, so fcash-base could not be started'
 fi

@@ -1,27 +1,27 @@
 'use strict';
 
 var should = require('chai').should();
-var fcore = require('../');
+var fcash_base = require('../');
 
 describe('Library', function() {
   it('should export primatives', function() {
-    should.exist(fcore.crypto);
-    should.exist(fcore.encoding);
-    should.exist(fcore.util);
-    should.exist(fcore.errors);
-    should.exist(fcore.Address);
-    should.exist(fcore.Block);
-    should.exist(fcore.MerkleBlock);
-    should.exist(fcore.BlockHeader);
-    should.exist(fcore.HDPrivateKey);
-    should.exist(fcore.HDPublicKey);
-    should.exist(fcore.Networks);
-    should.exist(fcore.Opcode);
-    should.exist(fcore.PrivateKey);
-    should.exist(fcore.PublicKey);
-    should.exist(fcore.Script);
-    should.exist(fcore.Transaction);
-    should.exist(fcore.URI);
-    should.exist(fcore.Unit);
+    should.exist(fcash_base.crypto);
+    should.exist(fcash_base.encoding);
+    should.exist(fcash_base.util);
+    should.exist(fcash_base.errors);
+    should.exist(fcash_base.Address);
+    should.exist(fcash_base.Block);
+    should.exist(fcash_base.MerkleBlock);
+    should.exist(fcash_base.BlockHeader);
+    should.exist(fcash_base.HDPrivateKey);
+    should.exist(fcash_base.HDPublicKey);
+    should.exist(fcash_base.Networks);
+    should.exist(fcash_base.Opcode);
+    should.exist(fcash_base.PrivateKey);
+    should.exist(fcash_base.PublicKey);
+    should.exist(fcash_base.Script);
+    should.exist(fcash_base.Transaction);
+    should.exist(fcash_base.URI);
+    should.exist(fcash_base.Unit);
   });
 });

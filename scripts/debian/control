@@ -1,4 +1,4 @@
-Package: fcore
+Package: fcash-base
 Version: {{ deb_package_version }}
 Section: base
 Priority: optional

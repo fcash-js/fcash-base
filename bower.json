@@ -1,6 +1,6 @@
 {
-  "name": "fcore",
-  "main": "./fcore.min.js",
+  "name": "fcash-base",
+  "main": "./fcash-base.min.js",
   "version": "0.13.5",
   "homepage": "http://www.fcash.cash",
   "authors": [
@@ -12,7 +12,7 @@
   ],
   "keywords": [
     "bitcoin",
-    "fcore",
+    "fcash-base",
     "btc",
     "satoshi"
   ],

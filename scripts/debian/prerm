@@ -4,11 +4,11 @@ set -e
 set -o pipefail
 
 if hash service 2> /dev/null; then
-    service fcore stop || echo "fcore wasn't running!"
+    service fcash-base stop || echo "fcash-base wasn't running!"
 elif hash stop 2> /dev/null; then
-    stop "$service_name" || echo "fcore wasn't running!"
+    stop "$service_name" || echo "fcash-base wasn't running!"
 elif hash systemctl 2> /dev/null; then
-    systemctl disable "fcore.service" || echo "fcore wasn't running!"
+    systemctl disable "fcash-base.service" || echo "fcash-base wasn't running!"
 else
-    echo "Your system does not appear to use upstart or systemd, so fcore could not be stopped"
+    echo "Your system does not appear to use upstart or systemd, so fcash-base could not be stopped"
 fi

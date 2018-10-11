@@ -7,7 +7,7 @@ if (parseInt(process.version.split('.')[0].slice(1)) < 8) {
 }
 
 var path = require('path');
-var fcored = require('fcash-node/lib/cli/fcored');
+var fcash_based = require('fcash-node/lib/cli/fcash-based');
 var servicesPath = path.resolve(__dirname, '../');
 var additionalServices = ['insight-api', 'insight-ui'];
-fcored(servicesPath, additionalServices);
+fcash_based(servicesPath, additionalServices);

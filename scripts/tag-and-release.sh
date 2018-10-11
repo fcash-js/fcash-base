@@ -5,8 +5,8 @@ set -e
 
 insightApiDir="${HOME}/source/insight-api"
 insightUIDir="${HOME}/source/insight-ui"
-fcoreDir="${HOME}/source/fcore"
-fcoreNodeDir="${HOME}/source/fcash-node"
+fcashBaseDir="${HOME}/source/fcash-base"
+fcashBaseNodeDir="${HOME}/source/fcash-node"
 
 ###########################################################
 
@@ -35,11 +35,11 @@ fi
 #############################################
 # fcash-node
 #############################################
-function fcoreNode() {
+function fcashBaseNode() {
   echo ""
   echo "Starting with fcash-node..."
   sleep 2
-  pushd "${fcoreNodeDir}"
+  pushd "${fcashBaseNodeDir}"
 
   sudo rm -fr node_modules
   bump_version
@@ -183,13 +183,13 @@ function insightUi() {
 }
 
 #############################################
-# fcore
+# fcash-base
 #############################################
-function fcore() {
+function fcashBase() {
   echo ""
-  echo "Releasing fcore..."
+  echo "Releasing fcash-base..."
   sleep 2
-  pushd "${fcoreDir}"
+  pushd "${fcashBaseDir}"
 
   sudo rm -fr node_modules
   bump_version
@@ -210,7 +210,7 @@ function fcore() {
   fi
 
   echo ""
-  echo "Committing changes for fcore..."
+  echo "Committing changes for fcash-base..."
   sleep 2
   git commit -S
 
@@ -243,10 +243,10 @@ echo "Assuming projects at ${HOME}/source..."
 
 releases="${2}"
 if [ -z "${releases}" ]; then
-  fcoreNode
+  fcashBaseNode
   insightApi
   insightUi
-  fcore
+  fcashBase
 else
   eval "${releases}"
 fi

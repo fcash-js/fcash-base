@@ -5,8 +5,8 @@
     {
       "type": "node",
       "request": "launch",
-      "name": "fcored",
-      "program": "${workspaceRoot}/bin/fcored"
+      "name": "fcash-based",
+      "program": "${workspaceRoot}/bin/fcash-based"
     }
   ]
 }

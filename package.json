@@ -12,8 +12,8 @@
     "build-deb": "./scripts/build-deb"
   },
   "bin": {
-    "fcore": "./bin/fcore",
-    "fcored": "./bin/fcored"
+    "fcash-base": "./bin/fcash-base",
+    "fcash-based": "./bin/fcash-based"
   },
   "keywords": [
     "bitcoin",
@@ -33,7 +33,7 @@
   ],
   "repository": {
     "type": "git",
-    "url": "https://github.com/fcash-project/fcore.git"
+    "url": "https://github.com/fcash-js/fcash-base.git"
   },
   "dependencies": {
     "fcash-lib": "5.0.0-beta.1",

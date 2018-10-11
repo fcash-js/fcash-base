@@ -1,5 +1,5 @@
 'use strict';
 
-var fcore = require('fcash-lib');
+var fcashBase = require('fcash-lib');
 
-module.exports = fcore;
+module.exports = fcashBase;
