@@ -246,7 +246,7 @@ git checkout -b remove/some-file
 
 We expect pull requests to be rebased to the master branch before merging:
 ```sh
-git remote add fcash git@github.com:fcash-project/fcashBase.git
+git remote add fcash git@github.com:fcash-js/fcashBase.git
 git pull --rebase fcash master
 ```
 
