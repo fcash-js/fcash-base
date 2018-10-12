@@ -42,7 +42,7 @@ transaction.sign(privateKey);
 - [Wallet Client](https://github.com/fcash-js/fcash-wallet-client) - A client for the wallet service
 - [CLI Wallet](https://github.com/fcash-js/fcash-wallet) - A command-line based wallet client
 - [Angular Wallet Client](https://github.com/fcash-js/angular-fcash-wallet-client) - An Angular based wallet client
-- [FcashApp](https://github.com/fcash-js/fcash-pay) - An easy-to-use, multiplatform, multisignature, secure bitcoin wallet
+- [FcashApp](https://github.com/fcash-js/fcashpay) - An easy-to-use, multiplatform, multisignature, secure bitcoin wallet
 
 ## Libraries
 

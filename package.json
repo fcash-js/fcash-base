@@ -1,6 +1,6 @@
 {
   "name": "fcash-base",
-  "version": "5.0.0-beta.44",
+  "version": "5.0.1",
   "description": "A platform to build bitcoin and blockchain-based applications.",
   "engines": {
     "node": ">=8.0.0"
